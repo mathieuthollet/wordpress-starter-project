@@ -14,7 +14,7 @@ class Editor
      */
     public static function admin_init()
     {
-        add_editor_style('assets/css/editor.dist' . (STARTER_THEME_MODE_DEV ? '' : '.min') . '.css');
+        add_editor_style('assets/css/editor.css');
     }
 
 }

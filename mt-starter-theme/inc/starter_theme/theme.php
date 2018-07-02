@@ -27,12 +27,12 @@ class Theme
         // Vue JS
         wp_enqueue_script('vue-js', 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js');
         // Bootstrap carousel swipe support
-        wp_enqueue_script('bc-swipe', get_stylesheet_directory_uri() . '/assets/js/vendor/jquery.bcSwipe.min.js');
+        wp_enqueue_script('bc-swipe', get_stylesheet_directory_uri() . '/assets/js/vendor/jquery.bcSwipe.min.js', [], false, true);
         // CSS spécifiques
-        wp_enqueue_style('starter-theme', get_stylesheet_directory_uri() . '/assets/css/style.dist' . (STARTER_THEME_MODE_DEV ? '' : '.min') . '.css?v=' . STARTER_THEME_VERSION_JS_CSS);
-        wp_enqueue_style('starter-theme-print', get_stylesheet_directory_uri() . '/assets/css/print.dist' . (STARTER_THEME_MODE_DEV ? '' : '.min') . '.css?v=' . STARTER_THEME_VERSION_JS_CSS, [], false, 'print');
+        wp_enqueue_style('starter-theme', get_stylesheet_directory_uri() . '/assets/css/theme.css', [], STARTER_THEME_VERSION_JS_CSS);
+        wp_enqueue_style('starter-theme-print', get_stylesheet_directory_uri() . '/assets/css/print.css', [], STARTER_THEME_VERSION_JS_CSS, [], false, 'print');
         // JS spécifiques
-        wp_enqueue_script('starter-theme', get_stylesheet_directory_uri() . '/assets/js/starter-theme.dist' . (STARTER_THEME_MODE_DEV ? '' : '.min') . '.js?v=' . STARTER_THEME_VERSION_JS_CSS);
+        wp_enqueue_script('starter-theme', get_stylesheet_directory_uri() . '/assets/js/theme.js', [], STARTER_THEME_VERSION_JS_CSS, true);
     }
 
 

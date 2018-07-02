@@ -2,11 +2,11 @@
 
 Structure de base pour les développements de thème wordpress.
 
-Utilise Gulp pour :
+Utilise Webpack pour :
 * bundle et min les javascripts
 * compiler les SASS
 
-Pour installer Gulp, utiliser npm dans le dossier _dev
+Pour installer Webpack, utiliser npm dans le dossier _dev
 
 Utilise Timber pour avoir les templates en Twig.
 
