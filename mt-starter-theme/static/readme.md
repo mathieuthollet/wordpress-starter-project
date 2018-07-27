@@ -1,0 +1,1 @@
+Placer ici le contenu statique (images, etc.)

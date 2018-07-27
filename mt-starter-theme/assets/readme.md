@@ -1,0 +1,1 @@
+Ici seront installés les assets compilés depuis le dossier _dev avec webpack
