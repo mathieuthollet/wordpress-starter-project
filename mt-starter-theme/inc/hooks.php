@@ -16,7 +16,6 @@ add_action('after_setup_theme', ['StarterTheme\Theme', 'register_nav_menus']);
 add_action('after_setup_theme', ['StarterTheme\Theme', 'add_image_sizes']);
 add_filter('image_size_names_choose', ['StarterTheme\Theme', 'image_size_names_choose']);
 add_filter('max_srcset_image_width', ['StarterTheme\Theme', 'max_srcset_image_width']);
-add_filter('wp_nav_menu_items', ['StarterTheme\Theme', 'add_search_link_to_wp_menu'], 10, 2);
 add_filter('timber_context', ['StarterTheme\Theme', 'timber_context']);
 
 
