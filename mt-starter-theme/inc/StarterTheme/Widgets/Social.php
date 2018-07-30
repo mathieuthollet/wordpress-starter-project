@@ -44,7 +44,12 @@ class Social extends WP_Widget
      */
     public function widget($args, $instance)
     {
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
+        $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
         echo $args['before_widget'];
+        if ($title) {
+            echo $args['before_title'] . $title . $args['after_title'];
+        }
         $context = Timber::get_context();
         $context['lien_linkedin'] = $instance['lien_linkedin'];
         $context['lien_youtube'] = $instance['lien_youtube'];
@@ -62,10 +67,16 @@ class Social extends WP_Widget
      */
     public function form($instance)
     {
-        ?><p>
-        <label for="<?= $this->get_field_id('lien_linkedin'); ?>">Lien LinkedIn :</label>
-        <input class="widefat" id="<?= $this->get_field_id('lien_linkedin'); ?>" name="<?= $this->get_field_name('lien_linkedin'); ?>"
-               type="text" value="<?= isset($instance['lien_linkedin']) ? $instance['lien_linkedin'] : ''; ?>"/>
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ) ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>"
+                   type="text" value="<?= isset( $instance['title'] ) ? $instance['title'] : ''; ?>" />
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('lien_linkedin'); ?>">Lien LinkedIn :</label>
+            <input class="widefat" id="<?= $this->get_field_id('lien_linkedin'); ?>" name="<?= $this->get_field_name('lien_linkedin'); ?>"
+                   type="text" value="<?= isset($instance['lien_linkedin']) ? $instance['lien_linkedin'] : ''; ?>"/>
         </p>
         <p>
             <label for="<?= $this->get_field_id('lien_youtube'); ?>">Lien Youtube :</label>
@@ -89,6 +100,7 @@ class Social extends WP_Widget
     public function update($new_instance, $old_instance)
     {
         $instance = [];
+        $instance['title'] = isset($new_instance['title']) ? $new_instance['title'] : '';
         $instance['lien_linkedin'] = isset($new_instance['lien_linkedin']) ? $new_instance['lien_linkedin'] : '';
         $instance['lien_youtube'] = isset($new_instance['lien_youtube']) ? $new_instance['lien_youtube'] : '';
         return $instance;

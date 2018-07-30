@@ -58,7 +58,8 @@ class Theme
      * @param $sizes
      * @return array
      */
-    function image_size_names_choose( $sizes ) {
+    function image_size_names_choose( $sizes )
+    {
         return array_merge([
             //'...' => __( '...' ),
         ], $sizes);
@@ -68,7 +69,8 @@ class Theme
     /**
      * Désactivation des images responsive de Wordpress 4.4 (bug safari)
      */
-    public static function max_srcset_image_width() {
+    public static function max_srcset_image_width()
+    {
         return 1;
     }
 
@@ -76,7 +78,8 @@ class Theme
     /**
      * Ajoute les variables globales au contexte Timber
      */
-    public static function timber_context( $context ) {
+    public static function timber_context( $context )
+    {
         $context['menuHeader'] = new Menu('menu-header');
         return $context;
     }
