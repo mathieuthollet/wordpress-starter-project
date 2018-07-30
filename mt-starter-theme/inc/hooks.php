@@ -26,6 +26,11 @@ add_filter('timber_context', ['StarterTheme\Theme', 'timber_context']);
 
 /////////////////
 // Widgets
+add_action('widgets_init', ['StarterTheme\Widgets', 'widgets_init']);
+add_filter('timber_context', ['StarterTheme\Widgets', 'timber_context']);
+
+// Social
+add_action('widgets_init', ['StarterTheme\Widgets\Social', 'register']);
 
 
 ///////////////////////
