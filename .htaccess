@@ -1,0 +1,10 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/wp/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /wp/$1
+RewriteRule ^(/)?$ wp/index.php [L]
+</IfModule>
+# END WordPress
