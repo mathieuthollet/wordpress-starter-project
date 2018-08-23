@@ -15,6 +15,7 @@
     "wpackagist-plugin/duplicate-post":"*",
     "wpackagist-plugin/duplicator":"*",
     "wpackagist-plugin/really-simple-ssl":"*",
+    "wpackagist-plugin/regenerate-thumbnails":"*",
     "wpackagist-plugin/widgets-device-display-option":"*",
     "wpackagist-plugin/wordfence":"*",
     "wpackagist-plugin/wordpress-seo":"*",
