@@ -1,0 +1,15 @@
+@mixin mediaquery-mobile {
+  @media (max-width: $md-down) {
+    @content;
+  }
+}
+@mixin mediaquery-tablette {
+  @media (min-width: $md-up) and (max-width: $lg-down) {
+    @content;
+  }
+}
+@mixin mediaquery-desktop {
+  @media (min-width: $lg-up) {
+    @content;
+  }
+}
