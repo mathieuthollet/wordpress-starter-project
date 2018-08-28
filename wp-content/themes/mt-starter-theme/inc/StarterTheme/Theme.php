@@ -28,7 +28,7 @@ class Theme
         wp_enqueue_script('vue-js', 'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js');
         // CSS spécifiques
         wp_enqueue_style('starter-theme', get_stylesheet_directory_uri() . '/assets/css/theme.css', [], STARTER_THEME_VERSION_JS_CSS);
-        wp_enqueue_style('starter-theme-print', get_stylesheet_directory_uri() . '/assets/css/print.css', [], STARTER_THEME_VERSION_JS_CSS, [], false, 'print');
+        wp_enqueue_style('starter-theme-print', get_stylesheet_directory_uri() . '/assets/css/print.css', [], STARTER_THEME_VERSION_JS_CSS, 'print');
         // JS spécifiques
         wp_enqueue_script('starter-theme', get_stylesheet_directory_uri() . '/assets/js/theme.js', [], STARTER_THEME_VERSION_JS_CSS, true);
     }
