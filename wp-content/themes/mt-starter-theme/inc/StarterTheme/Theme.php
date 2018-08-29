@@ -80,6 +80,7 @@ class Theme
      */
     public static function timber_context( $context )
     {
+        $context['staticUri'] = get_template_directory_uri() . 'static/';
         $context['menuHeader'] = new Menu('menu-header');
         return $context;
     }
