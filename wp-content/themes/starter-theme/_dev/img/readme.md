@@ -1,0 +1,1 @@
+Placer ici les images utilisées dans CSS
