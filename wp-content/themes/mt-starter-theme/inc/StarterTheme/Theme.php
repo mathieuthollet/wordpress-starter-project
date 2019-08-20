@@ -58,7 +58,7 @@ class Theme
      * @param $sizes
      * @return array
      */
-    function image_size_names_choose( $sizes )
+    public static function image_size_names_choose( $sizes )
     {
         return array_merge([
             //'...' => __( '...' ),
