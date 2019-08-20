@@ -1,11 +1,18 @@
-@import 'fonts';
 @import 'var/fonts';
 @import 'var/breakpoints';
 @import 'var/colors';
 @import 'var/typo';
+
 @import 'mixin/common';
+@import 'mixin/font-face';
 @import 'mixin/media-query';
-@import 'partial/header/header';
-@import 'partial/footer/footer';
+
+@import 'partial/common/fonts';
 @import 'partial/common/common';
 @import 'partial/common/layout';
+@import 'partial/common/util';
+@import 'partial/common/typo';
+
+@import 'partial/header/header';
+
+@import 'partial/footer/footer';
