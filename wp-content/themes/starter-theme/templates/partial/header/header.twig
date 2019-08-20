@@ -1,8 +1,8 @@
 <header id="header">
     {% block header %}
         <div class="wrapper">
-            <h1 class="hdr-logo" role="banner">
-                <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+            <h1 class="logo" role="banner">
+                <a class="logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
             </h1>
             <nav id="nav-main" class="nav-main" role="navigation">
                 {% include "partial/header/menu.twig" with {'menu': menuHeader.get_items} %}
