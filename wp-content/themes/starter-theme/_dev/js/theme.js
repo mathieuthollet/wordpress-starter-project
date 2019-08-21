@@ -1,3 +1,5 @@
-(function ($) {
+import $ from 'jquery';
 
-})(jQuery);
+$(document).ready(function() {
+
+});
