@@ -1,5 +1,11 @@
 <?php
 
+
+/////////////////
+// Admin
+add_action('login_url', ['StarterTheme\Admin', 'login_url']);
+
+
 /////////////////
 // Editor (admin)
 add_action('admin_init', ['StarterTheme\Editor', 'admin_init']);
