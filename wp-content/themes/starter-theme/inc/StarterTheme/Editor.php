@@ -12,7 +12,7 @@ class Editor
     /**
      * Ajoute le editor.css
      */
-    public static function admin_init()
+    public static function adminInit()
     {
         add_editor_style('assets/css/editor.css');
     }

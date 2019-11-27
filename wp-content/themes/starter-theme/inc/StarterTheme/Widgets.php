@@ -15,7 +15,7 @@ class Widgets
     /**
      * Déclaration des zones de widgets du thème
      */
-    public static function widgets_init()
+    public static function widgetsInit()
     {
         register_sidebar([
             'name' => 'Footer colonne 1',
@@ -47,7 +47,7 @@ class Widgets
     /**
      * Ajoute les variables globales au contexte Timber
      */
-    public static function timber_context( $context )
+    public static function timberContext( $context )
     {
         $context['footerCol1'] = Timber::get_widgets('footer-col-1');
         $context['footerCol2'] = Timber::get_widgets('footer-col-2');

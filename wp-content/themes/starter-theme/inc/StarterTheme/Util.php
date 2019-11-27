@@ -12,7 +12,7 @@ class Util
     /**
      * Equivalent de get_template_part mais retourne le contenu au lieu de l'afficher
      */
-    public static function include_template_part($slug, $name = null)
+    public static function includeTemplatePart($slug, $name = null)
     {
         ob_start();
         get_template_part($slug, $name);

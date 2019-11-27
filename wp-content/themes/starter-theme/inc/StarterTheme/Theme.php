@@ -14,7 +14,7 @@ class Theme
      /**
      * Ajout des fichiers JS et CSS
      */
-    public static function wp_enqueue_scripts()
+    public static function wpEnqueueScripts()
     {
         // jQuery
         wp_enqueue_script('jquery');
@@ -37,7 +37,7 @@ class Theme
     /**
      * Déclare les menus du thème
      */
-    public static function register_nav_menus()
+    public static function registerNavMenus()
     {
         register_nav_menu('menu-header', __('Menu header', 'starter-theme'));
     }
@@ -46,7 +46,7 @@ class Theme
     /**
      * Déclaration ds tailles de thumbnails
      */
-    public static function add_image_sizes()
+    public static function addImageSizes()
     {
         add_theme_support('post-thumbnails');
         //add_image_size('...', 1200, 800, true);
@@ -58,7 +58,7 @@ class Theme
      * @param $sizes
      * @return array
      */
-    public static function image_size_names_choose( $sizes )
+    public static function imageSizeNamesChoose( $sizes )
     {
         return array_merge([
             //'...' => __( '...' ),
@@ -69,7 +69,7 @@ class Theme
     /**
      * Désactivation des images responsive de Wordpress 4.4 (bug safari)
      */
-    public static function max_srcset_image_width()
+    public static function maxSrcsetImageWidth()
     {
         return 1;
     }
@@ -78,7 +78,7 @@ class Theme
     /**
      * Ajoute les variables globales au contexte Timber
      */
-    public static function timber_context( $context )
+    public static function timberContext( $context )
     {
         $context['staticUri'] = get_template_directory_uri() . '/static/';
         $context['menuHeader'] = new Menu('menu-header');
