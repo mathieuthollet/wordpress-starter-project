@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const ExtraneousFileCleanupPlugin = require('webpack-extraneous-file-cleanup-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const production = (process.env.NODE_ENV === 'production');
 
@@ -69,6 +70,10 @@ let config = {
             {
                 test : /\.css$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader']
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader'
             }
         ]
     },
@@ -96,7 +101,8 @@ let config = {
         }),
         new ExtraneousFileCleanupPlugin({
             extensions: ['.js']
-        })
+        }),
+        new VueLoaderPlugin()
     ]
 };
 
