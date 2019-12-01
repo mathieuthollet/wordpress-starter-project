@@ -9,6 +9,7 @@ add_action('loginUrl', ['StarterTheme\Admin', 'loginUrl']);
 /////////////////
 // Editor (admin)
 add_action('admin_init', ['StarterTheme\Editor', 'adminInit']);
+add_filter('upload_mimes', ['StarterTheme\Editor', 'uploadMimes'], 1, 1);
 
 
 /////////////////
