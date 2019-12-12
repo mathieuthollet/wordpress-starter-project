@@ -14,6 +14,7 @@ class Editor
      */
     public static function adminInit()
     {
+        add_theme_support('editor-styles');
         add_editor_style('assets/css/editor.css');
     }
 
