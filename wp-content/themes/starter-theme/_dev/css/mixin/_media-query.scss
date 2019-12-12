@@ -28,7 +28,7 @@
     @content;
   }
 }
-@mixin tv4k {
+@mixin mediaquery-tv4k {
   @media (min-width: $tv4k-up) {
     @content;
   }
