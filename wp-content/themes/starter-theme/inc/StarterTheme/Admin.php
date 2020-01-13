@@ -8,6 +8,14 @@ namespace StarterTheme;
  */
 class Admin
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        add_action('loginUrl', ['StarterTheme\Admin', 'loginUrl']);
+    }
+
 
     /**
      * Correction du bug faisant parfois apparaitre "wp/" dans redirect_to

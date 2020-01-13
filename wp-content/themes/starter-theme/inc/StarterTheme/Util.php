@@ -8,6 +8,15 @@ namespace StarterTheme;
  */
 class Util
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        // Empêche d'avoir des accents dans les noms des medias
+        add_filter('sanitize_file_name', 'remove_accents');
+    }
+
 
     /**
      * Equivalent de get_template_part mais retourne le contenu au lieu de l'afficher

@@ -10,6 +10,19 @@ use Timber\Menu;
  */
 class Theme
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        add_action('wp_enqueue_scripts', ['StarterTheme\Theme', 'wpEnqueueScripts']);
+        add_action('after_setup_theme', ['StarterTheme\Theme', 'registerNavMenus']);
+        add_action('after_setup_theme', ['StarterTheme\Theme', 'addImageSizes']);
+        add_filter('image_size_names_choose', ['StarterTheme\Theme', 'imageSizeNamesChoose']);
+        add_filter('max_srcset_image_width', ['StarterTheme\Theme', 'maxSrcsetImageWidth']);
+        add_filter('timber_context', ['StarterTheme\Theme', 'timberContext']);
+    }
+
 
      /**
      * Ajout des fichiers JS et CSS

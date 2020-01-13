@@ -11,6 +11,14 @@ use WP_Widget,
  */
 class Social extends WP_Widget
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        add_action('widgets_init', ['StarterTheme\Widgets\Social', 'register']);
+    }
+
 
     /**
      * Register

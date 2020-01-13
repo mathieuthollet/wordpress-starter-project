@@ -11,6 +11,15 @@ use Timber\Timber,
  */
 class Widgets
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        add_action('widgets_init', ['StarterTheme\Widgets', 'widgetsInit']);
+        add_filter('timber_context', ['StarterTheme\Widgets', 'timberContext']);
+    }
+
 
     /**
      * Déclaration des zones de widgets du thème

@@ -8,6 +8,15 @@ namespace StarterTheme;
  */
 class Editor
 {
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+        add_action('admin_init', ['StarterTheme\Editor', 'adminInit']);
+        add_filter('upload_mimes', ['StarterTheme\Editor', 'uploadMimes'], 1, 1);
+    }
+
 
     /**
      * Ajoute le editor.css
