@@ -5,6 +5,7 @@ namespace StarterTheme;
 
 /**
  * Gestion admin
+ * @package StarterTheme
  */
 class Admin
 {
@@ -19,6 +20,8 @@ class Admin
 
     /**
      * Correction du bug faisant parfois apparaitre "wp/" dans redirect_to
+     * @param $loginUrl
+     * @return string|string[]
      */
     public static function loginUrl($loginUrl)
     {

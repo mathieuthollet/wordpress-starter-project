@@ -5,6 +5,7 @@ namespace StarterTheme;
 
 /**
  * Gestion de tinyMCE
+ * @package StarterTheme
  */
 class Editor
 {
@@ -30,6 +31,8 @@ class Editor
 
     /**
      * Autorise l'upload d'images svg
+     * @param $mime_types
+     * @return mixed
      */
     public static function uploadMimes($mime_types)
     {

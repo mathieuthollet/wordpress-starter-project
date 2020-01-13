@@ -8,6 +8,7 @@ use WP_Widget,
 
 /**
  * Widget Social
+ * @package StarterTheme\Widgets
  */
 class Social extends WP_Widget
 {

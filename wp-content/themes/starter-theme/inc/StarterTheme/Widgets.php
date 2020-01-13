@@ -8,6 +8,7 @@ use Timber\Timber,
 
 /**
  * Fonctions communes à tous les widgets / fonctions hooks sur les widgets non spécifiques
+ * @package StarterTheme
  */
 class Widgets
 {
@@ -55,6 +56,8 @@ class Widgets
 
     /**
      * Ajoute les variables globales au contexte Timber
+     * @param $context
+     * @return mixed
      */
     public static function timberContext( $context )
     {

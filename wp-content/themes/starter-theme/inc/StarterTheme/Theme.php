@@ -7,6 +7,7 @@ use Timber\Menu;
 
 /**
  * Gestion du thème
+ * @package StarterTheme
  */
 class Theme
 {
@@ -79,6 +80,7 @@ class Theme
 
     /**
      * Désactivation des images responsive de Wordpress 4.4 (bug safari)
+     * @return int
      */
     public static function maxSrcsetImageWidth()
     {
@@ -88,6 +90,8 @@ class Theme
 
     /**
      * Ajoute les variables globales au contexte Timber
+     * @param $context
+     * @return mixed
      */
     public static function timberContext( $context )
     {

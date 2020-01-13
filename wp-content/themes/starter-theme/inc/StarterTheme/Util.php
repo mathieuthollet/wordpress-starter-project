@@ -5,6 +5,7 @@ namespace StarterTheme;
 
 /**
  * Fonctions utilitaires
+ * @package StarterTheme
  */
 class Util
 {
@@ -20,6 +21,9 @@ class Util
 
     /**
      * Equivalent de get_template_part mais retourne le contenu au lieu de l'afficher
+     * @param $slug
+     * @param null $name
+     * @return false|string
      */
     public static function includeTemplatePart($slug, $name = null)
     {
