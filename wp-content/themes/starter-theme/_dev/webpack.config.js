@@ -78,7 +78,6 @@ let config = {
         ]
     },
     externals: {
-        prestashop: 'prestashop',
         $: '$',
         jquery: 'jQuery'
     },
