@@ -9,6 +9,11 @@ namespace StarterTheme;
  */
 class Shortcodes
 {
-
+    /**
+     * Initialisation globale
+     */
+    public static function init()
+    {
+    }
 
 }
