@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin mediaquery-not-mobile {
+  @media (min-width: $md-up) {
+    @content;
+  }
+}
 @mixin mediaquery-tablette {
   @media (min-width: $md-up) and (max-width: $lg-down) {
     @content;
