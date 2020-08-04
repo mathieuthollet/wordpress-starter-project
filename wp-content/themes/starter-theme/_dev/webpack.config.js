@@ -57,7 +57,7 @@ let config = {
                 })
             },
             {
-                test: /.(png|jpg|woff(2)?|eot|ttf|otf|svg)(\?[a-z0-9=\.]+)?$/,
+                test: /.(png|jpg|gif|woff(2)?|eot|ttf|otf|svg)(\?[a-z0-9=\.]+)?$/,
                 use: [
                     {
                         loader: 'file-loader',
