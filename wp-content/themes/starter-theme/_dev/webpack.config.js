@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ExtraneousFileCleanupPlugin = require('webpack-extraneous-file-cleanup-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+//const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const production = (process.env.NODE_ENV === 'production');
 
@@ -31,30 +29,38 @@ let config = {
             },
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                minimize: production,
-                                sourceMap: !production
-                            }
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '../css/[name].css',
+                        }
+                    },
+                    {
+                        loader: 'extract-loader'
+                    },
+                    {
+                        loader: 'css-loader'
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "autoprefixer",
+                                        {
+                                            // Options
+                                        },
+                                    ],
+                                ],
+                            },
                         },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: 'inline'
-                            }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: !production
-                            }
-                        },
-                    ]
-                })
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             },
             {
                 test: /.(png|jpg|gif|woff(2)?|eot|ttf|otf|svg)(\?[a-z0-9=\.]+)?$/,
@@ -68,41 +74,21 @@ let config = {
                 ]
             },
             {
-                test : /\.css$/,
+                test: /\.css$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader']
             },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            }
         ]
     },
+    plugins: [
+        /*new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),*/
+    ],
     externals: {
         $: '$',
         jquery: 'jQuery'
     },
-    plugins: [
-        new ExtractTextPlugin(path.join('..', 'css', '[name].css')),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: !production,
-            compress: {
-                sequences: production,
-                conditionals: production,
-                booleans: production,
-                if_return: production,
-                join_vars: production,
-                drop_console: production
-            },
-            output: {
-                comments: !production
-            },
-            minimize: production
-        }),
-        new ExtraneousFileCleanupPlugin({
-            extensions: ['.js']
-        }),
-        new VueLoaderPlugin()
-    ]
 };
 
 
