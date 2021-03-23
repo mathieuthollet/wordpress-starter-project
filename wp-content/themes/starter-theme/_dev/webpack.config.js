@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-//const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const production = (process.env.NODE_ENV === 'production');
 
@@ -19,13 +18,22 @@ let config = {
     },
     output: {
         path: path.resolve(__dirname, '../assets/js'),
-        filename: '[name].js'
+        filename: '[name].js',
+        assetModuleFilename: '../[path][name][ext]'
     },
     module: {
         rules: [
             {
                 test: /\.js/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
             },
             {
                 test: /\.scss$/,
@@ -37,10 +45,7 @@ let config = {
                         }
                     },
                     {
-                        loader: 'extract-loader'
-                    },
-                    {
-                        loader: 'css-loader'
+                        loader: 'sass-loader'
                     },
                     {
                         loader: 'postcss-loader',
@@ -57,20 +62,6 @@ let config = {
                             },
                         },
                     },
-                    {
-                        loader: 'sass-loader'
-                    }
-                ]
-            },
-            {
-                test: /.(png|jpg|gif|woff(2)?|eot|ttf|otf|svg)(\?[a-z0-9=\.]+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '../[path][name].[ext]'
-                        }
-                    }
                 ]
             },
             {
@@ -79,12 +70,6 @@ let config = {
             },
         ]
     },
-    plugins: [
-        /*new MiniCssExtractPlugin({
-            filename: '[name].css',
-            chunkFilename: '[id].css',
-        }),*/
-    ],
     externals: {
         $: '$',
         jquery: 'jQuery'
