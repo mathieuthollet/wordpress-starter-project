@@ -1,6 +1,20 @@
-<a href="{{ lien_linkedin }}">
-    <i class="fa fa-linkedin" aria-hidden="true"></i>
-</a>
-<a href="{{ lien_youtube }}">
-    <i class="fa fa-youtube" aria-hidden="true"></i>
-</a>
+{% if lien_twitter != '' %}
+    <a href="{{ lien_twitter }}">
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+    </a>
+{% endif %}
+{% if lien_linkedin != '' %}
+    <a href="{{ lien_linkedin }}">
+        <i class="fa fa-linkedin" aria-hidden="true"></i>
+    </a>
+{% endif %}
+{% if lien_youtube != '' %}
+    <a href="{{ lien_youtube }}">
+        <i class="fa fa-youtube" aria-hidden="true"></i>
+    </a>
+{% endif %}
+{% if lien_viadeo != '' %}
+    <a href="{{ lien_viadeo }}">
+        <i class="fa fa-viadeo" aria-hidden="true"></i>
+    </a>
+{% endif %}
