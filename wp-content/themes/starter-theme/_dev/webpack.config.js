@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtraneousFileCleanupPlugin = require('webpack-extraneous-file-cleanup-plugin');
 
 const production = (process.env.NODE_ENV === 'production');
 
@@ -18,8 +20,7 @@ let config = {
     },
     output: {
         path: path.resolve(__dirname, '../assets/js'),
-        filename: '[name].js',
-        assetModuleFilename: '../[path][name][ext]'
+        filename: '[name].js'
     },
     module: {
         rules: [
@@ -28,44 +29,45 @@ let config = {
                 loader: 'babel-loader'
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
-            },
-            {
                 test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: production,
+                                sourceMap: !production
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: 'inline'
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: !production
+                            }
+                        },
+                    ]
+                })
+            },
+            {
+                test: /.(png|jpg|gif|woff(2)?|eot|ttf|otf|svg)(\?[a-z0-9=\.]+)?$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            name: '../css/[name].css',
+                            name: '../[path][name].[ext]'
                         }
-                    },
-                    {
-                        loader: 'sass-loader'
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    [
-                                        "autoprefixer",
-                                        {
-                                            // Options
-                                        },
-                                    ],
-                                ],
-                            },
-                        },
-                    },
+                    }
                 ]
             },
             {
-                test: /\.css$/,
+                test : /\.css$/,
                 use: ['style-loader', 'css-loader', 'postcss-loader']
             },
         ]
@@ -74,6 +76,27 @@ let config = {
         $: '$',
         jquery: 'jQuery'
     },
+    plugins: [
+        new ExtractTextPlugin(path.join('..', 'css', '[name].css')),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: !production,
+            compress: {
+                sequences: production,
+                conditionals: production,
+                booleans: production,
+                if_return: production,
+                join_vars: production,
+                drop_console: production
+            },
+            output: {
+                comments: !production
+            },
+            minimize: production
+        }),
+        new ExtraneousFileCleanupPlugin({
+            extensions: ['.js']
+        }),
+    ]
 };
 
 
