@@ -60,8 +60,10 @@ class Social extends WP_Widget
             echo $args['before_title'] . $title . $args['after_title'];
         }
         $context = Timber::get_context();
+        $context['lien_twitter'] = $instance['lien_twitter'];
         $context['lien_linkedin'] = $instance['lien_linkedin'];
         $context['lien_youtube'] = $instance['lien_youtube'];
+        $context['lien_viadeo'] = $instance['lien_viadeo'];
         Timber::render('widgets/social.twig', $context);
         echo $args['after_widget'];
     }
@@ -83,6 +85,11 @@ class Social extends WP_Widget
                    type="text" value="<?= isset( $instance['title'] ) ? $instance['title'] : ''; ?>" />
         </p>
         <p>
+            <label for="<?= $this->get_field_id('lien_twitter'); ?>">Lien Twitter :</label>
+            <input class="widefat" id="<?= $this->get_field_id('lien_twitter'); ?>" name="<?= $this->get_field_name('lien_twitter'); ?>"
+                   type="text" value="<?= isset($instance['lien_twitter']) ? $instance['lien_twitter'] : ''; ?>"/>
+        </p>
+        <p>
             <label for="<?= $this->get_field_id('lien_linkedin'); ?>">Lien LinkedIn :</label>
             <input class="widefat" id="<?= $this->get_field_id('lien_linkedin'); ?>" name="<?= $this->get_field_name('lien_linkedin'); ?>"
                    type="text" value="<?= isset($instance['lien_linkedin']) ? $instance['lien_linkedin'] : ''; ?>"/>
@@ -91,6 +98,11 @@ class Social extends WP_Widget
             <label for="<?= $this->get_field_id('lien_youtube'); ?>">Lien Youtube :</label>
             <input class="widefat" id="<?= $this->get_field_id('lien_youtube'); ?>" name="<?= $this->get_field_name('lien_youtube'); ?>"
                    type="text" value="<?= isset($instance['lien_youtube']) ? $instance['lien_youtube'] : ''; ?>"/>
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('lien_viadeo'); ?>">Lien Viadeo :</label>
+            <input class="widefat" id="<?= $this->get_field_id('lien_viadeo'); ?>" name="<?= $this->get_field_name('lien_viadeo'); ?>"
+                   type="text" value="<?= isset($instance['lien_viadeo']) ? $instance['lien_viadeo'] : ''; ?>"/>
         </p>
         <?php
     }
@@ -110,8 +122,10 @@ class Social extends WP_Widget
     {
         $instance = [];
         $instance['title'] = isset($new_instance['title']) ? $new_instance['title'] : '';
+        $instance['lien_twitter'] = isset($new_instance['lien_twitter']) ? $new_instance['lien_twitter'] : '';
         $instance['lien_linkedin'] = isset($new_instance['lien_linkedin']) ? $new_instance['lien_linkedin'] : '';
         $instance['lien_youtube'] = isset($new_instance['lien_youtube']) ? $new_instance['lien_youtube'] : '';
+        $instance['lien_viadeo'] = isset($new_instance['lien_viadeo']) ? $new_instance['lien_viadeo'] : '';
         return $instance;
     }
 
