@@ -8,6 +8,7 @@
                 {% include "partial/header/menu.twig" with {'menu': menuHeader.get_items} %}
                 {{ function('get_search_form') }}
             </nav><!-- #nav -->
+            {{ breadcrumbs }}
         </div>
     {% endblock %}
 </header>
