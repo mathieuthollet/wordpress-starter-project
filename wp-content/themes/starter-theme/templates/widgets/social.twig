@@ -1,20 +1,22 @@
-{% if lien_twitter != '' %}
-    <a href="{{ lien_twitter }}">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-    </a>
-{% endif %}
-{% if lien_linkedin != '' %}
-    <a href="{{ lien_linkedin }}">
-        <i class="fa fa-linkedin" aria-hidden="true"></i>
-    </a>
-{% endif %}
-{% if lien_youtube != '' %}
-    <a href="{{ lien_youtube }}">
-        <i class="fa fa-youtube" aria-hidden="true"></i>
-    </a>
-{% endif %}
-{% if lien_viadeo != '' %}
-    <a href="{{ lien_viadeo }}">
-        <i class="fa fa-viadeo" aria-hidden="true"></i>
-    </a>
-{% endif %}
+<div class="social">
+    {% if lien_twitter != '' %}
+        <a href="{{ lien_twitter }}" target="_blank">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+    {% if lien_linkedin != '' %}
+        <a href="{{ lien_linkedin }}" target="_blank">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+    {% if lien_youtube != '' %}
+        <a href="{{ lien_youtube }}" target="_blank">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+    {% if lien_viadeo != '' %}
+        <a href="{{ lien_viadeo }}" target="_blank">
+            <i class="fa fa-viadeo" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+</div>
