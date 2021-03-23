@@ -34,8 +34,8 @@ class Theme
         wp_enqueue_script('jquery');
         wp_enqueue_script('jquery-migrate');
         // Bootstrap
-        wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js');
-        wp_enqueue_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+        wp_enqueue_script('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js');
+        wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
         // Font awesome
         wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
         // CSS spécifiques
@@ -97,6 +97,9 @@ class Theme
     {
         $context['staticUri'] = get_template_directory_uri() . '/static/';
         $context['menuHeader'] = new Menu('menu-header');
+        if (function_exists('yoast_breadcrumb')) {
+            $context['breadcrumbs'] = yoast_breadcrumb('<nav id="breadcrumbs" class="main-breadcrumbs">', '</nav>', false);
+        }
         return $context;
     }
 }
