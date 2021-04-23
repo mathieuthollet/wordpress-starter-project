@@ -18,8 +18,13 @@
     @content;
   }
 }
-@mixin mediaquery-laptop {
+@mixin mediaquery-not-mobile-tablette {
   @media (min-width: $lg-up) {
+    @content;
+  }
+}
+@mixin mediaquery-laptop {
+  @media (min-width: $lg-up) and (max-width: $xl-down) {
     @content;
   }
 }
