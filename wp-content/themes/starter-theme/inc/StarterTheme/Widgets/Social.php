@@ -17,7 +17,7 @@ class Social extends WP_Widget
      */
     public static function init()
     {
-        add_action('widgets_init', ['StarterTheme\Widgets\Social', 'register']);
+        add_action('widgets_init', ['Ecoiffier\Widgets\Social', 'register']);
     }
 
 
@@ -26,7 +26,7 @@ class Social extends WP_Widget
      */
     public static function register()
     {
-        register_widget('StarterTheme\Widgets\Social');
+        register_widget('Ecoiffier\Widgets\Social');
     }
 
 
@@ -36,9 +36,9 @@ class Social extends WP_Widget
     function __construct()
     {
         parent::__construct(
-            'StarterThemeSocial', // Base ID
-            esc_html__('StarterTheme Social', 'starter-theme'), // Name
-            ['description' => esc_html__('Icones réseaux sociaux footer', 'starter-theme')] // Args
+            'EcoiffierSocial', // Base ID
+            esc_html__('Ecoiffier Social', 'ecoiffier'), // Name
+            ['description' => esc_html__('Icones réseaux sociaux footer', 'ecoiffier')] // Args
         );
     }
 
@@ -60,6 +60,8 @@ class Social extends WP_Widget
             echo $args['before_title'] . $title . $args['after_title'];
         }
         $context = Timber::get_context();
+        $context['lien_facebook'] = $instance['lien_facebook'];
+        $context['lien_instagram'] = $instance['lien_instagram'];
         $context['lien_twitter'] = $instance['lien_twitter'];
         $context['lien_linkedin'] = $instance['lien_linkedin'];
         $context['lien_youtube'] = $instance['lien_youtube'];
@@ -83,6 +85,16 @@ class Social extends WP_Widget
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ) ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>"
                    type="text" value="<?= isset( $instance['title'] ) ? $instance['title'] : ''; ?>" />
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('lien_facebook'); ?>">Lien Facebook :</label>
+            <input class="widefat" id="<?= $this->get_field_id('lien_facebook'); ?>" name="<?= $this->get_field_name('lien_facebook'); ?>"
+                   type="text" value="<?= isset($instance['lien_facebook']) ? $instance['lien_facebook'] : ''; ?>"/>
+        </p>
+        <p>
+            <label for="<?= $this->get_field_id('lien_instagram'); ?>">Lien Instagram :</label>
+            <input class="widefat" id="<?= $this->get_field_id('lien_instagram'); ?>" name="<?= $this->get_field_name('lien_instagram'); ?>"
+                   type="text" value="<?= isset($instance['lien_instagram']) ? $instance['lien_instagram'] : ''; ?>"/>
         </p>
         <p>
             <label for="<?= $this->get_field_id('lien_twitter'); ?>">Lien Twitter :</label>
@@ -122,6 +134,8 @@ class Social extends WP_Widget
     {
         $instance = [];
         $instance['title'] = isset($new_instance['title']) ? $new_instance['title'] : '';
+        $instance['lien_facebook'] = isset($new_instance['lien_facebook']) ? $new_instance['lien_facebook'] : '';
+        $instance['lien_instagram'] = isset($new_instance['lien_instagram']) ? $new_instance['lien_instagram'] : '';
         $instance['lien_twitter'] = isset($new_instance['lien_twitter']) ? $new_instance['lien_twitter'] : '';
         $instance['lien_linkedin'] = isset($new_instance['lien_linkedin']) ? $new_instance['lien_linkedin'] : '';
         $instance['lien_youtube'] = isset($new_instance['lien_youtube']) ? $new_instance['lien_youtube'] : '';
@@ -130,4 +144,3 @@ class Social extends WP_Widget
     }
 
 }
-
