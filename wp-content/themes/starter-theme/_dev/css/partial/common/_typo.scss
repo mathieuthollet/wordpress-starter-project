@@ -1,0 +1,14 @@
+html {
+  @include mediaquery-mobile {
+    font-size: 80%;
+  }
+  @include mediaquery-tablette {
+    font-size: 80%;
+  }
+  @include mediaquery-xxxl {
+    font-size: 125%;
+  }
+  @include mediaquery-tv4k {
+    font-size: 150%;
+  }
+}
