@@ -5,7 +5,7 @@
                 <a class="logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
             </h1>
             <nav id="nav-main" class="nav-main" role="navigation">
-                {% include "partial/header/menu.twig" with {'menu': menuHeader.get_items} %}
+                {% include "partial/header/menu.twig" with {'menu': menuHeader.get_items, 'level': 1} %}
                 {{ function('get_search_form') }}
             </nav><!-- #nav -->
             {{ breadcrumbs }}
