@@ -1,4 +1,14 @@
 <div class="social">
+    {% if lien_facebook != '' %}
+        <a href="{{ lien_facebook }}" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+    {% endif %}
+    {% if lien_instagram != '' %}
+        <a href="{{ lien_instagram }}" target="_blank">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+    {% endif %}
     {% if lien_twitter != '' %}
         <a href="{{ lien_twitter }}" target="_blank">
             <i class="fa fa-twitter" aria-hidden="true"></i>
