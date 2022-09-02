@@ -17,7 +17,7 @@ class Social extends WP_Widget
      */
     public static function init()
     {
-        add_action('widgets_init', ['Ecoiffier\Widgets\Social', 'register']);
+        add_action('widgets_init', ['StarterTheme\Widgets\Social', 'register']);
     }
 
 
@@ -26,7 +26,7 @@ class Social extends WP_Widget
      */
     public static function register()
     {
-        register_widget('Ecoiffier\Widgets\Social');
+        register_widget('StarterTheme\Widgets\Social');
     }
 
 
@@ -36,9 +36,9 @@ class Social extends WP_Widget
     function __construct()
     {
         parent::__construct(
-            'EcoiffierSocial', // Base ID
-            esc_html__('Ecoiffier Social', 'ecoiffier'), // Name
-            ['description' => esc_html__('Icones réseaux sociaux footer', 'ecoiffier')] // Args
+            'StarterThemeSocial', // Base ID
+            esc_html__('StarterTheme Social', 'starter-theme'), // Name
+            ['description' => esc_html__('Icones réseaux sociaux footer', 'starter-theme')] // Args
         );
     }
 
